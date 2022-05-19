@@ -1,0 +1,11 @@
+.home_grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .home_grid {
+    display: block;
+  }
+}

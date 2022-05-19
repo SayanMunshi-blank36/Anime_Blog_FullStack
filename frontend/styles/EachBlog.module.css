@@ -1,0 +1,11 @@
+.eachBlogTemp {
+  display: grid;
+  grid-template-columns: 1.1fr 1.6fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .eachBlogTemp {
+    grid-template-columns: 1fr;
+  }
+}
