@@ -5,7 +5,7 @@ import LatestBlogs from "../../components/LatestBlogs";
 import RightSection from "../../components/RightSection";
 import styles from "../../styles/Home.module.css";
 
-const Slug = () => {
+const Slug = ({ getCategories, navCategories }) => {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -34,5 +34,26 @@ const Slug = () => {
     </div>
   );
 };
+
+export async function getServerSideProps(context) {
+  let navCategories;
+  let headers = {
+    Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
+  };
+
+  try {
+    const res = await fetch("http://localhost:1337/api/categories", {
+      headers: headers,
+    });
+    const json = await res.json();
+    navCategories = json.data;
+  } catch (error) {
+    throw new Error(error);
+  }
+
+  return {
+    props: { navCategories }, // will be passed to the page component as props
+  };
+}
 
 export default Slug;

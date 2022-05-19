@@ -8,7 +8,9 @@ import {
   BsInstagram,
 } from "react-icons/bs";
 
-const Navbar = ({ mode, modeSelected, willSearch }) => {
+const Navbar = ({ mode, modeSelected, willSearch, navCategories }) => {
+  // console.log(navCategories);
+
   return (
     <>
       <nav className="navbar bg-base-300 shadow-lg sticky top-0 z-40">
@@ -35,7 +37,7 @@ const Navbar = ({ mode, modeSelected, willSearch }) => {
                 tabIndex="0"
                 className="menu menu-compact dropdown-content mt-3 p-2 rounded-box w-72 bg-base-300 shadow-lg font-montserrat font-semibold"
               >
-                <li>
+                {/* <li>
                   <Link href="/category/anime">
                     <div>Anime</div>
                   </Link>
@@ -64,7 +66,18 @@ const Navbar = ({ mode, modeSelected, willSearch }) => {
                   <Link href="/category/gaming">
                     <div>Gaming</div>
                   </Link>
-                </li>
+                </li> */}
+
+                {navCategories.map((categories) => {
+                  return (
+                    <li key={categories.id}>
+                      <Link href={`/category/${categories.attributes.type}`}>
+                        <div>{categories.attributes.type}</div>
+                      </Link>
+                    </li>
+                  );
+                })}
+
                 <li tabIndex="0">
                   <div>
                     More
@@ -99,7 +112,7 @@ const Navbar = ({ mode, modeSelected, willSearch }) => {
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0 font-montserrat font-semibold">
-              <li>
+              {/* <li>
                 <Link href="/category/anime">
                   <div>Anime</div>
                 </Link>
@@ -128,7 +141,16 @@ const Navbar = ({ mode, modeSelected, willSearch }) => {
                 <Link href="/category/gaming">
                   <div>Gaming</div>
                 </Link>
-              </li>
+              </li> */}
+              {navCategories.map((categories) => {
+                return (
+                  <li key={categories.id}>
+                    <Link href={`/category/${categories.attributes.type}`}>
+                      <div>{categories.attributes.type}</div>
+                    </Link>
+                  </li>
+                );
+              })}
               <li tabIndex="0">
                 <div>
                   More
