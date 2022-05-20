@@ -21,8 +21,12 @@ const Slug = ({ getCategories, navCategories }) => {
           {slug}
         </h1>
         <p className="font-montserrat text-center mb-8 w-10/12">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus rerum
-          quod cum rem iste repellat cupiditate dolore. Magnam, tempora id.
+          {navCategories.map((category) => {
+            return (
+              category.attributes.type === slug &&
+              category.attributes.typeDescription
+            );
+          })}
         </p>
       </div>
       <main className="container mx-auto p-8">
