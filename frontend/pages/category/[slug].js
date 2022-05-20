@@ -1,11 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import LatestBlogs from "../../components/LatestBlogs";
+import CategoryLatestBlogs from "../../components/CategoryLatestBlogs";
 import RightSection from "../../components/RightSection";
 import styles from "../../styles/Home.module.css";
 
-const Slug = ({ getCategories, navCategories }) => {
+const Slug = ({ getCategories, navCategories, blogData }) => {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -31,7 +31,7 @@ const Slug = ({ getCategories, navCategories }) => {
       </div>
       <main className="container mx-auto p-8">
         <section className={styles.home_grid}>
-          <LatestBlogs />
+          <CategoryLatestBlogs blogData={blogData} checkSlug={slug} />
           <RightSection />
         </section>
       </main>
@@ -41,22 +41,32 @@ const Slug = ({ getCategories, navCategories }) => {
 
 export async function getServerSideProps(context) {
   let navCategories;
+  let blogData;
   let headers = {
     Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
   };
 
   try {
-    const res = await fetch("http://localhost:1337/api/categories", {
-      headers: headers,
-    });
-    const json = await res.json();
-    navCategories = json.data;
+    const [res1, res2] = await Promise.all([
+      fetch("http://localhost:1337/api/categories", {
+        headers: headers,
+      }),
+      fetch(
+        "http://localhost:1337/api/blog-posts?populate=*&sort=createdAt%3Adesc",
+        {
+          headers: headers,
+        }
+      ),
+    ]);
+    const [json1, json2] = await Promise.all([res1.json(), res2.json()]);
+    navCategories = json1.data;
+    blogData = json2.data;
   } catch (error) {
     throw new Error(error);
   }
 
   return {
-    props: { navCategories }, // will be passed to the page component as props
+    props: { navCategories, blogData }, // will be passed to the page component as props
   };
 }
 

@@ -23,7 +23,7 @@ export default function Home({ blogData }) {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur,
           molestias!
         </p>
-        <FeaturedPosts />
+        <FeaturedPosts blogData={blogData} />
         <section className={styles.home_grid}>
           <LatestBlogs blogData={blogData} />
           <RightSection />

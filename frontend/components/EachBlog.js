@@ -23,7 +23,9 @@ const EachBlog = ({ eachBlog }) => {
       />
       <div className="right_latest-blog flex flex-col">
         <div className="right_latest_internal mb-8">
-          <Link href="/category/manga">
+          <Link
+            href={`/category/${eachBlog.attributes.categories.data[0].attributes.type}`}
+          >
             <div>
               <div className="cursor-pointer bg-error w-fit p-0.5 text-sm rounded-sm font-montserrat">
                 {eachBlog.attributes.categories.data[0].attributes.type}

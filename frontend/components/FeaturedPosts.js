@@ -4,7 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 import FeaturedPostCard from "./FeaturedPostCard";
 import Link from "next/link";
 
-const FeaturedPosts = () => {
+const FeaturedPosts = ({ blogData }) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1024 },
@@ -75,9 +75,18 @@ const FeaturedPosts = () => {
         itemClass="px-4"
         className="z-10"
       >
-        <FeaturedPostCard />
-        <FeaturedPostCard />
-        <FeaturedPostCard />
+        {blogData.map(
+          (eachBlogData) =>
+            eachBlogData.attributes.featured && (
+              <FeaturedPostCard
+                key={eachBlogData.id}
+                eachBlogData={eachBlogData}
+              />
+            )
+        )}
+
+        {/* <FeaturedPostCard />
+        <FeaturedPostCard /> */}
       </Carousel>
     </div>
   );

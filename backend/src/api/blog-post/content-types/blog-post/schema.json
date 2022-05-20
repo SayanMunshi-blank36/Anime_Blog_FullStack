@@ -53,6 +53,16 @@
       "type": "uid",
       "default": "slug",
       "required": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "popular": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
