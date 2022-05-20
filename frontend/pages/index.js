@@ -5,7 +5,9 @@ import RightSection from "../components/RightSection";
 import styles from "../styles/Home.module.css";
 import FeaturedPosts from "../components/FeaturedPosts";
 
-export default function Home() {
+export default function Home({ blogData }) {
+  // console.log(blogData);
+
   return (
     <div>
       <Head>
@@ -23,7 +25,7 @@ export default function Home() {
         </p>
         <FeaturedPosts />
         <section className={styles.home_grid}>
-          <LatestBlogs />
+          <LatestBlogs blogData={blogData} />
           <RightSection />
         </section>
       </main>
@@ -33,21 +35,31 @@ export default function Home() {
 
 export async function getServerSideProps(context) {
   let navCategories;
+  let blogData;
   let headers = {
     Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
   };
 
   try {
-    const res = await fetch("http://localhost:1337/api/categories", {
-      headers: headers,
-    });
-    const json = await res.json();
-    navCategories = json.data;
+    const [res1, res2] = await Promise.all([
+      fetch("http://localhost:1337/api/categories", {
+        headers: headers,
+      }),
+      fetch(
+        "http://localhost:1337/api/blog-posts?populate=*&sort=createdAt%3Adesc",
+        {
+          headers: headers,
+        }
+      ),
+    ]);
+    const [json1, json2] = await Promise.all([res1.json(), res2.json()]);
+    navCategories = json1.data;
+    blogData = json2.data;
   } catch (error) {
     throw new Error(error);
   }
 
   return {
-    props: { navCategories }, // will be passed to the page component as props
+    props: { navCategories, blogData }, // will be passed to the page component as props
   };
 }

@@ -23,6 +23,12 @@
       "maxLength": 200,
       "minLength": 15,
       "default": "Add Description"
+    },
+    "blog_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::blog-post.blog-post",
+      "mappedBy": "categories"
     }
   }
 }

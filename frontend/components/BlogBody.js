@@ -14,7 +14,7 @@ const BlogBody = () => {
         eveniet optio, alias accusantium cum similique iusto neque quod dolores
         nostrum natus maxime laboriosam at illo!
       </p>
-      <p className="author font-bold cursor-pointer uppercase">Blank36</p>
+      <p className="author font-bold uppercase">Blank36</p>
       <div className="date mb-4 uppercase">May 15, 2022</div>
       <Image src="/393055.png" width={800} height={600} />
       <p className="content my-8 pb-4 font-montserrat text-lg leading-8 border-b-2 border-b-gray-700 ">
