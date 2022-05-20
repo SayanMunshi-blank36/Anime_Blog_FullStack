@@ -3,10 +3,10 @@ import Link from "next/link";
 import moment from "moment";
 
 const FeaturedPostCard = ({ eachBlogData }) => {
-  console.log(eachBlogData.attributes.blogImg.data.attributes.url);
+  // console.log(eachBlogData.attributes.blogImg.data.attributes.url);
 
   return (
-    <Link href="/blogpost/vagabond">
+    <Link href={`/blogpost/${eachBlogData.attributes.slug}`}>
       <div className="relative h-screen cursor-pointer hover:opacity-90">
         <div
           className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-screen"

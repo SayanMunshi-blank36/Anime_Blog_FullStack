@@ -17,9 +17,9 @@ function MyApp({ Component, pageProps, navCategories }) {
     setSearch(searchChoise);
   };
 
-  const getCategories = (achievedCategories) => {
-    console.log(achievedCategories);
-  };
+  // const getCategories = (achievedCategories) => {
+  //   console.log(achievedCategories);
+  // };
 
   return (
     <>
@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps, navCategories }) {
           willSearch={willSearch}
           navCategories={navCategories}
         />{" "}
-        <Component {...pageProps} getCategories={getCategories} /> <Footer />
+        <Component {...pageProps} /> <Footer />
       </Theme>
     </>
   );
