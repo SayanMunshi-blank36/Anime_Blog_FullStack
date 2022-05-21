@@ -76,6 +76,11 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "moreBlogs": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

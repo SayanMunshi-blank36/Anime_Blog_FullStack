@@ -141,7 +141,21 @@ const RightSection = ({ blogData }) => {
             More
           </h2>
 
-          <Link href="/blogpost/oyasumi-punpun">
+          {blogData.map(
+            (eachBlog) =>
+              eachBlog.attributes.moreBlogs && (
+                <Link
+                  key={eachBlog.id}
+                  href={`/blogpost/${eachBlog.attributes.slug}`}
+                >
+                  <div>
+                    <MoreBlogs eachBlog={eachBlog} />
+                  </div>
+                </Link>
+              )
+          )}
+
+          {/* <Link href="/blogpost/oyasumi-punpun">
             <div>
               <MoreBlogs />
             </div>
@@ -150,12 +164,7 @@ const RightSection = ({ blogData }) => {
             <div>
               <MoreBlogs />
             </div>
-          </Link>
-          <Link href="/blogpost/oyasumi-punpun">
-            <div>
-              <MoreBlogs />
-            </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>
