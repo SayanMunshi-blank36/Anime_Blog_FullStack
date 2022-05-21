@@ -71,10 +71,23 @@ const RightSection = ({ blogData }) => {
           </div>
         </Link> */}
         <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
-          Manga Reviews
+          Featured Manga Posts
         </h2>
-        <div className="mx-2 manga_reviews md:place-items-center grid grid-cols-2 gap-6">
-          <Link href="/blogpost/oyasumi-punpun">
+        <div className="mx-2 manga_reviews md:justify-center grid grid-cols-2 gap-6">
+          {blogData.map(
+            (eachBlog) =>
+              eachBlog.attributes.mangaFeatured && (
+                <Link
+                  key={eachBlog.id}
+                  href={`/blogpost/${eachBlog.attributes.slug}`}
+                >
+                  <div>
+                    <MangaReviews eachBlog={eachBlog} />
+                  </div>
+                </Link>
+              )
+          )}
+          {/* <Link href="/blogpost/oyasumi-punpun">
             <div>
               <MangaReviews />
             </div>
@@ -88,23 +101,18 @@ const RightSection = ({ blogData }) => {
             <div>
               <MangaReviews />
             </div>
-          </Link>
-          <Link href="/blogpost/oyasumi-punpun">
-            <div>
-              <MangaReviews />
-            </div>
-          </Link>
+          </Link> */}
         </div>
-        <Link href="/category/manga">
+        <Link href="/category/Manga">
           <div>
             <button className="mb-4 btn btn-primary mt-4 w-full font-montserrat font-extrabold">
               See More
             </button>
           </div>
         </Link>
-        <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
+        {/* <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
         <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
-          Comic Reviews
+          Featured Comic Posts
         </h2>
         <div className="mx-2 manga_reviews md:place-items-center grid grid-cols-2 gap-6">
           <Link href="/blogpost/spider-man">
@@ -134,7 +142,7 @@ const RightSection = ({ blogData }) => {
               See More
             </button>
           </div>
-        </Link>
+        </Link> */}
         <div>
           <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
           <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
