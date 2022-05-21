@@ -23,15 +23,19 @@ const EachBlog = ({ eachBlog }) => {
       />
       <div className="right_latest-blog flex flex-col">
         <div className="right_latest_internal mb-8">
-          <Link
-            href={`/category/${eachBlog.attributes.categories.data[0].attributes.type}`}
-          >
-            <div>
-              <div className="cursor-pointer bg-error w-fit p-0.5 text-sm rounded-sm font-montserrat">
-                {eachBlog.attributes.categories.data[0].attributes.type}
-              </div>
-            </div>
-          </Link>
+          <div className="flex">
+            {eachBlog.attributes.categories.data.map((category) => {
+              return (
+                <Link href={`/category/${category.attributes.type}`}>
+                  <div>
+                    <div className="cursor-pointer bg-error w-fit p-0.5 text-sm rounded-sm font-montserrat mr-2">
+                      {category.attributes.type}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
           <h3 className="font-bangers my-1 tracking-wider text-3xl cursor-pointer hover:underline">
             {eachBlog.attributes.title}
           </h3>
