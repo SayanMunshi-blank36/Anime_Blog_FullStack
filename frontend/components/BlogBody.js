@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import ReactMarkdown from "react-markdown";
 import moment from "moment";
+import styles from "../styles/BlogBody.module.css";
 
 const BlogBody = ({ clickedBlog }) => {
   return (
@@ -26,7 +27,9 @@ const BlogBody = ({ clickedBlog }) => {
         height={600}
       />
       <div className="content my-8 pb-4 font-montserrat text-lg leading-8 border-b-2 border-b-gray-700 ">
-        <ReactMarkdown>{clickedBlog.attributes.blogContent}</ReactMarkdown>
+        <ReactMarkdown className={styles.reactMarkdown}>
+          {clickedBlog.attributes.blogContent}
+        </ReactMarkdown>
       </div>
       <div className="ad text-center bg-secondary h-72 w-72 mx-auto mb-16">
         Ad

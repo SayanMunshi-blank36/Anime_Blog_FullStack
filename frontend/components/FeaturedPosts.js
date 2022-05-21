@@ -68,9 +68,11 @@ const FeaturedPosts = ({ blogData }) => {
         Featured
       </h2>
       <Carousel
-        infinite
+        infinite={true}
         CustomLeftArrow={customLeftArrow}
         CustomRightArrow={customRightArrow}
+        autoPlay={true}
+        autoPlaySpeed={2000}
         responsive={responsive}
         itemClass="px-4"
         className="z-10"

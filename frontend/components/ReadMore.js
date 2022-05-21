@@ -22,7 +22,9 @@ const responsive = {
   },
 };
 
-const FeaturedPosts = () => {
+const ReadMore = ({ blogData }) => {
+  // console.log(blogData);
+
   const customLeftArrow = (
     <div className="absolute arrow-btn left-0 text-center py-3 cursor-pointer bg-pink-600 rounded-full">
       <svg
@@ -46,7 +48,7 @@ const FeaturedPosts = () => {
     <div className="absolute arrow-btn right-0 text-center py-3 cursor-pointer bg-pink-600 rounded-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-12"
+        className="h-6 w-12 -z-10"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -64,26 +66,21 @@ const FeaturedPosts = () => {
   return (
     <div className="mb-8">
       <Carousel
-        infinite
-        customLeftArrow={customLeftArrow}
-        customRightArrow={customRightArrow}
+        infinite={true}
+        CustomLeftArrow={customLeftArrow}
+        CustomRightArrow={customRightArrow}
+        autoPlay={true}
+        autoPlaySpeed={2000}
         responsive={responsive}
         itemClass="px-4"
+        className="z-10"
       >
-        <ReadMoreCard />
-        <ReadMoreCard />
-        <ReadMoreCard />
-        <ReadMoreCard />
-        <ReadMoreCard />
-        <ReadMoreCard />
-        <ReadMoreCard />
-        <ReadMoreCard />
-        <ReadMoreCard />
-        <ReadMoreCard />
-        <ReadMoreCard />
+        {blogData.map((eachBlog) => {
+          return <ReadMoreCard key={eachBlog.id} eachBlogData={eachBlog} />;
+        })}
       </Carousel>
     </div>
   );
 };
 
-export default FeaturedPosts;
+export default ReadMore;

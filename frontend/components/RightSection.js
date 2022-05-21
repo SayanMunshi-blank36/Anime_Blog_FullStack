@@ -109,25 +109,28 @@ const RightSection = () => {
             </button>
           </div>
         </Link>
-        <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
-        <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
-          More
-        </h2>
-        <Link href="/blogpost/oyasumi-punpun">
-          <div>
-            <MoreBlogs />
-          </div>
-        </Link>
-        <Link href="/blogpost/oyasumi-punpun">
-          <div>
-            <MoreBlogs />
-          </div>
-        </Link>
-        <Link href="/blogpost/oyasumi-punpun">
-          <div>
-            <MoreBlogs />
-          </div>
-        </Link>
+        <div>
+          <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
+          <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
+            More
+          </h2>
+
+          <Link href="/blogpost/oyasumi-punpun">
+            <div>
+              <MoreBlogs />
+            </div>
+          </Link>
+          <Link href="/blogpost/oyasumi-punpun">
+            <div>
+              <MoreBlogs />
+            </div>
+          </Link>
+          <Link href="/blogpost/oyasumi-punpun">
+            <div>
+              <MoreBlogs />
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );

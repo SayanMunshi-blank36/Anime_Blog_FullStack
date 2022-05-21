@@ -10,7 +10,9 @@ const Slug = ({ navCategories, blogData, clickedBlog }) => {
   const router = useRouter();
   const { slug } = router.query;
 
-  console.log(clickedBlog);
+  // console.log(clickedBlogCategories);
+
+  // console.log(clickedBlog);
 
   return (
     <>
@@ -31,7 +33,7 @@ const Slug = ({ navCategories, blogData, clickedBlog }) => {
           <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
             Read More
           </h2>
-          <ReadMore />
+          <ReadMore blogData={blogData} />
         </div>
         <div className="ad bg-secondary w-3/4 h-36 mb-8">Ad</div>
       </main>
