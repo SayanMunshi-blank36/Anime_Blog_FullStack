@@ -64,9 +64,12 @@
       "default": false,
       "required": true
     },
-    "authorId": {
-      "type": "integer",
-      "default": 1,
+    "authorImg": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
       "required": true
     }
   }

@@ -63,7 +63,7 @@ const BlogBody = ({ clickedBlog }) => {
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start">
           <Image
-            src="http://localhost:1337/uploads/blank_36_avatar_7b3a6c977a.png"
+            src={`http://localhost:1337${clickedBlog.attributes.authorImg.data.attributes.url}`}
             width={100}
             height={100}
             className="rounded-full"
