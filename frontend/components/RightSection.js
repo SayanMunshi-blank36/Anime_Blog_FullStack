@@ -174,6 +174,7 @@ const RightSection = ({ blogData }) => {
             </div>
           </Link> */}
         </div>
+        <div className="ad text-center bg-secondary h-96 my-16">Ad</div>
       </div>
     </section>
   );
