@@ -32,7 +32,7 @@ const Slug = ({ getCategories, navCategories, blogData }) => {
       <main className="container mx-auto p-8">
         <section className={styles.home_grid}>
           <CategoryLatestBlogs blogData={blogData} checkSlug={slug} />
-          <RightSection />
+          <RightSection blogData={blogData} />
         </section>
       </main>
     </div>

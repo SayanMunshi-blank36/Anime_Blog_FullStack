@@ -27,7 +27,7 @@ const Slug = ({ navCategories, blogData, clickedBlog }) => {
           className={`${styles.home_grid} border-b-2 border-b-gray-700 mb-8`}
         >
           <BlogBody clickedBlog={clickedBlog} />
-          <RightSection />
+          <RightSection blogData={blogData} />
         </section>
         <div className="ReadNext w-full mb-8">
           <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">

@@ -5,7 +5,9 @@ import ComicReviews from "./ComicReviews";
 import MoreBlogs from "./MoreBlogs";
 import Link from "next/link";
 
-const RightSection = () => {
+const RightSection = ({ blogData }) => {
+  // console.log(blogData);
+
   return (
     <section className="my-8 px-4">
       <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
@@ -13,7 +15,21 @@ const RightSection = () => {
         <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
           Popular
         </h2>
-        <Link href="/blogpost/berserk">
+        {blogData.map(
+          (eachBlog) =>
+            eachBlog.attributes.popular1 && (
+              <Link
+                key={eachBlog.id}
+                href={`/blogpost/${eachBlog.attributes.slug}`}
+              >
+                <div>
+                  <RightSideBlog key={eachBlog.id} eachBlog={eachBlog} />
+                </div>
+              </Link>
+            )
+        )}
+
+        {/* <Link href="/blogpost/berserk">
           <div>
             <RightSideBlog />
           </div>
@@ -22,14 +38,24 @@ const RightSection = () => {
           <div>
             <RightSideBlog />
           </div>
-        </Link>
-        <Link href="/blogpost/berserk">
-          <div>
-            <RightSideBlog />
-          </div>
-        </Link>
+        </Link> */}
         <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
-        <Link href="/blogpost/berserk">
+
+        {blogData.map(
+          (eachBlog) =>
+            eachBlog.attributes.popular2 && (
+              <Link
+                key={eachBlog.id}
+                href={`/blogpost/${eachBlog.attributes.slug}`}
+              >
+                <div>
+                  <RightSideBlog key={eachBlog.id} eachBlog={eachBlog} />
+                </div>
+              </Link>
+            )
+        )}
+
+        {/* <Link href="/blogpost/berserk">
           <div>
             <RightSideBlog />
           </div>
@@ -43,7 +69,7 @@ const RightSection = () => {
           <div>
             <RightSideBlog />
           </div>
-        </Link>
+        </Link> */}
         <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
           Manga Reviews
         </h2>

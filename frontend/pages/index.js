@@ -26,7 +26,7 @@ export default function Home({ blogData }) {
         <FeaturedPosts blogData={blogData} />
         <section className={styles.home_grid}>
           <LatestBlogs blogData={blogData} />
-          <RightSection />
+          <RightSection blogData={blogData} />
         </section>
       </main>
     </div>

@@ -70,7 +70,7 @@ const ReadMore = ({ blogData }) => {
         CustomLeftArrow={customLeftArrow}
         CustomRightArrow={customRightArrow}
         autoPlay={true}
-        autoPlaySpeed={2000}
+        autoPlaySpeed={5000}
         responsive={responsive}
         itemClass="px-4"
         className="z-10"

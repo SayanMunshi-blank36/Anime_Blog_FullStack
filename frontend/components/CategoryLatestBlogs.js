@@ -23,7 +23,7 @@ const CategoryLatestBlogs = ({ blogData, checkSlug }) => {
               key={eachBlog.id}
             >
               <div>
-                <EachBlog eachBlog={eachBlog} />
+                <EachBlog key={eachBlog.id} eachBlog={eachBlog} />
               </div>
             </Link>
           )

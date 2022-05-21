@@ -26,7 +26,10 @@ const EachBlog = ({ eachBlog }) => {
           <div className="flex">
             {eachBlog.attributes.categories.data.map((category) => {
               return (
-                <Link href={`/category/${category.attributes.type}`}>
+                <Link
+                  key={category.attributes.type}
+                  href={`/category/${category.attributes.type}`}
+                >
                   <div>
                     <div className="cursor-pointer bg-error w-fit p-0.5 text-sm rounded-sm font-montserrat mr-2">
                       {category.attributes.type}

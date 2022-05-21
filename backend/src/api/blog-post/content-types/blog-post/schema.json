@@ -59,17 +59,22 @@
       "default": false,
       "required": true
     },
-    "popular": {
+    "popular1": {
       "type": "boolean",
       "default": false,
       "required": true
     },
     "authorImg": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "popular2": {
+      "type": "boolean",
+      "default": false,
       "required": true
     }
   }
