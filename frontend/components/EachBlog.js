@@ -47,9 +47,13 @@ const EachBlog = ({ eachBlog }) => {
           </p>
         </div>
         <div className="each_blog_bottom flex">
-          <p className="cursor-text font-bold text-sm text-primary mr-4">
-            By {eachBlog.attributes.author.data.attributes.authorName}
-          </p>
+          <Link
+            href={`/author/${eachBlog.attributes.author.data.attributes.slug}`}
+          >
+            <p className="cursor-pointer font-bold text-sm text-primary mr-4">
+              By {eachBlog.attributes.author.data.attributes.authorName}
+            </p>
+          </Link>
           <p className="text-sm text-primary-focus cursor-text">
             {moment(eachBlog.attributes.createdAt).format("MMM DD, YYYY")}
           </p>

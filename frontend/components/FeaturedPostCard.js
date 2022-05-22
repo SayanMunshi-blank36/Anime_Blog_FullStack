@@ -26,10 +26,14 @@ const FeaturedPostCard = ({ eachBlogData }) => {
             {eachBlogData.attributes.blogDesc}
           </p>
 
-          <div className="flex items-center absolute sm:bottom-5 bottom-36 w-full justify-center">
-            <p className="inline align-middle text-shadow ml-2 text-base sm:text-xl font-montserrat cursor-text">
-              By {eachBlogData.attributes.author.data.attributes.authorName}
-            </p>
+          <div className="flex items-center absolute bottom-36 w-full justify-center">
+            <Link
+              href={`/author/${eachBlogData.attributes.author.data.attributes.slug}`}
+            >
+              <p className="inline align-middle text-shadow ml-2 text-base sm:text-xl font-montserrat cursor-pointer">
+                By {eachBlogData.attributes.author.data.attributes.authorName}
+              </p>
+            </Link>
           </div>
         </div>
       </div>

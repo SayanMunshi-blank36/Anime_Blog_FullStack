@@ -75,7 +75,7 @@ const FeaturedPosts = ({ blogData }) => {
         autoPlaySpeed={2000}
         responsive={responsive}
         itemClass="px-4"
-        className="z-10 h-96"
+        className="z-10 h-96 md:w-11/12 mx-auto"
         ssr={true}
       >
         {blogData.map(

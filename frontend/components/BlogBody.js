@@ -72,12 +72,25 @@ const BlogBody = ({ clickedBlog }) => {
             className="rounded-full"
           />
           <div className="md:ml-8 md:mt-0 mt-4">
-            <h3 className="font-bangers text-xl tracking-wider text-center md:text-left">
-              {clickedBlog.attributes.author.data.attributes.authorName}
-            </h3>
+            <Link
+              href={`/author/${clickedBlog.attributes.author.data.attributes.slug}`}
+            >
+              <h3 className="cursor-pointer font-bangers text-xl tracking-wider text-center md:text-left">
+                {clickedBlog.attributes.author.data.attributes.authorName}
+              </h3>
+            </Link>
             <p className="font-montserrat text-center sm:text-left">
               {clickedBlog.attributes.author.data.attributes.authorDesc}
             </p>
+            <Link
+              href={`/author/${clickedBlog.attributes.author.data.attributes.slug}`}
+            >
+              <p className="font-montserrat text-center sm:text-left text-gray-500 mt-4 cursor-pointer">
+                More From{" "}
+                {clickedBlog.attributes.author.data.attributes.authorName}{" "}
+                &rarr;
+              </p>
+            </Link>
           </div>
         </div>
       </div>
