@@ -30,7 +30,7 @@ const Slug = ({ navCategories, blogData, clickedBlog }) => {
           <RightSection blogData={blogData} />
         </section>
         <div className="ReadNext w-full mb-8">
-          <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
             Read More
           </h2>
           <ReadMore blogData={blogData} />

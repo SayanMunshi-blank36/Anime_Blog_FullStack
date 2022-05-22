@@ -12,7 +12,7 @@ const RightSection = ({ blogData }) => {
     <section className="my-8 px-4">
       <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
       <div className="content_display">
-        <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
+        <h2 className="text-2xl sm:text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
           Popular
         </h2>
         {blogData.map(
@@ -70,7 +70,7 @@ const RightSection = ({ blogData }) => {
             <RightSideBlog />
           </div>
         </Link> */}
-        <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
+        <h2 className="text-2xl sm:text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-8">
           Featured Manga Posts
         </h2>
         <div className="mx-2 manga_reviews md:justify-center grid grid-cols-2 gap-6">
@@ -145,7 +145,7 @@ const RightSection = ({ blogData }) => {
         </Link> */}
         <div>
           <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
-          <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
             More
           </h2>
 

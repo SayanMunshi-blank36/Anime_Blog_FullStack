@@ -17,10 +17,10 @@ const Slug = ({ getCategories, navCategories, blogData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="upper_intro mx-auto w-full flex flex-col justify-center items-center">
-        <h1 className="font-bangers tracking-widest text-center text-5xl my-8">
+        <h1 className="font-bangers tracking-widest text-center text-4xl sm:text-5xl my-4 sm:my-8">
           {slug}
         </h1>
-        <p className="font-montserrat text-center mb-8 w-10/12">
+        <p className="font-montserrat text-sm sm:text-base text-center mb-4 sm:mb-8 w-10/12">
           {navCategories.map((category) => {
             return (
               category.attributes.type === slug &&
@@ -29,7 +29,7 @@ const Slug = ({ getCategories, navCategories, blogData }) => {
           })}
         </p>
       </div>
-      <main className="container mx-auto p-8">
+      <main className="container mx-auto px-8 sm:p-8">
         <section className={styles.home_grid}>
           <CategoryLatestBlogs blogData={blogData} checkSlug={slug} />
           <RightSection blogData={blogData} />

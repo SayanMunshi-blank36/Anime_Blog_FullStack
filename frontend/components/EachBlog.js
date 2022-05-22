@@ -31,7 +31,7 @@ const EachBlog = ({ eachBlog }) => {
                   href={`/category/${category.attributes.type}`}
                 >
                   <div>
-                    <div className="cursor-pointer bg-error w-fit p-0.5 text-sm rounded-sm font-montserrat mr-2">
+                    <div className="cursor-pointer bg-error w-fit p-0.5 text-xs sm:text-sm rounded-sm font-montserrat mr-2">
                       {category.attributes.type}
                     </div>
                   </div>
@@ -39,10 +39,10 @@ const EachBlog = ({ eachBlog }) => {
               );
             })}
           </div>
-          <h3 className="font-bangers my-1 tracking-wider text-3xl cursor-pointer hover:underline">
+          <h3 className="font-bangers my-1 tracking-wider text-2xl sm:text-3xl cursor-pointer hover:underline">
             {eachBlog.attributes.title}
           </h3>
-          <p className="font-montserrat text-sm cursor-text">
+          <p className="font-montserrat text-xs sm:text-sm cursor-text">
             {eachBlog.attributes.blogDesc}
           </p>
         </div>

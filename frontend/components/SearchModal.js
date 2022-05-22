@@ -13,13 +13,13 @@ const SearchModal = ({ willSearch, search }) => {
         <form className="w-screen flex items-center justify-center bg-transparent">
           <input
             type="text"
-            className="md:w-3/5 w-4/5 h-20 bg-transparent border-b-2 border-b-primary placeholder-primary text-5xl font-bangers tracking-wider outline-none text-primary"
+            className="md:w-3/5 w-5/6 sm:w-4/5 h-16 sm:h-20 bg-transparent border-b-2 border-b-primary placeholder-primary text-3xl sm:text-5xl font-bangers tracking-wider outline-none text-primary"
             placeholder="Search"
           />
-          <BiSearchAlt className="text-5xl -ml-12 text-primary cursor-pointer" />
+          <BiSearchAlt className="text-4xl sm:text-5xl -ml-10 sm:-ml-12 text-primary cursor-pointer" />
         </form>
         <FaTimes
-          className="text-4xl cursor-pointer hover:text-error transition-all text-primary absolute top-5 right-10"
+          className="text-2xl sm:text-4xl cursor-pointer hover:text-error transition-all text-primary absolute top-5 sm:right-10 right-5"
           onClick={() => willSearch(false)}
         />
       </div>

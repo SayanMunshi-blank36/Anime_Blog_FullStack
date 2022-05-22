@@ -10,7 +10,7 @@ const MangaReviews = ({ eachBlog }) => {
         width={250}
         height={400}
       />
-      <h3 className="text-center font-bangers my-1 tracking-wider text-lg cursor-pointer hover:underline">
+      <h3 className="text-center font-bangers my-1 tracking-wider text-base sm:text-lg cursor-pointer hover:underline">
         {eachBlog.attributes.title}
       </h3>
     </div>

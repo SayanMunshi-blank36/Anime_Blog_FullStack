@@ -22,7 +22,7 @@ const CategoryLatestBlogs = ({ blogData, checkSlug }) => {
               href={`/blogpost/${eachBlog.attributes.slug}`}
               key={eachBlog.id}
             >
-              <div>
+              <div className="w-5/6 mx-auto lg:w-full">
                 <EachBlog key={eachBlog.id} eachBlog={eachBlog} />
               </div>
             </Link>

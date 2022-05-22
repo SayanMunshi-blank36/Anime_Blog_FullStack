@@ -9,16 +9,16 @@ import styles from "../styles/BlogBody.module.css";
 const BlogBody = ({ clickedBlog }) => {
   return (
     <div className="mt-8">
-      <h1 className="font-bangers text-4xl md:text-6xl tracking-wider mb-4">
+      <h1 className="font-bangers text-3xl sm:text-4xl md:text-6xl tracking-wider mb-4">
         {clickedBlog.attributes.title}
       </h1>
-      <p className="font-montserrat text-lg mb-4">
+      <p className="font-montserrat text-base sm:text-lg mb-4">
         {clickedBlog.attributes.blogDesc}
       </p>
-      <p className="author font-bold uppercase">
+      <p className="author text-sm sm:text-base font-bold uppercase">
         {clickedBlog.attributes.author.data.attributes.authorName}
       </p>
-      <div className="date mb-4 uppercase">
+      <div className="date text-sm sm:text-base mb-4 uppercase">
         {moment(clickedBlog.attributes.createdAt).format("MMM DD, YYYY")}
       </div>
       <Image
@@ -26,7 +26,7 @@ const BlogBody = ({ clickedBlog }) => {
         width={800}
         height={600}
       />
-      <div className="content my-8 pb-4 font-montserrat text-lg leading-8 border-b-2 border-b-gray-700 ">
+      <div className="content my-8 pb-4 font-montserrat sm:text-left text-center text-base sm:text-lg leading-8 border-b-2 border-b-gray-700 ">
         <ReactMarkdown className={styles.reactMarkdown}>
           {clickedBlog.attributes.blogContent}
         </ReactMarkdown>
@@ -34,7 +34,7 @@ const BlogBody = ({ clickedBlog }) => {
       <div className="ad text-center bg-secondary h-72 w-72 mx-auto mb-16">
         Ad
       </div>
-      <h2 className="font-bangers text-3xl border-b-4 border-b-error w-fit tracking-wider mb-2">
+      <h2 className="font-bangers text-2xl sm:text-3xl border-b-4 border-b-error w-fit tracking-wider mb-2">
         Category
       </h2>
       <div className="flex mb-4">
@@ -44,7 +44,7 @@ const BlogBody = ({ clickedBlog }) => {
               href={`/category/${category.attributes.type}`}
               key={category.id}
             >
-              <p className="font-montserrat border-2 border-error px-1 py-1 text-xl cursor-pointer rounded-md mr-4 hover:bg-error transition-all">
+              <p className="font-montserrat border-2 border-error px-1 py-1 text-base sm:text-xl cursor-pointer rounded-md mr-4 hover:bg-error transition-all">
                 {category.attributes.type}
               </p>
             </Link>
@@ -52,16 +52,16 @@ const BlogBody = ({ clickedBlog }) => {
         })}
       </div>
       <div className="share mt-8">
-        <h2 className="font-bangers border-b-4 border-b-error w-fit text-3xl tracking-wider mb-2">
+        <h2 className="font-bangers border-b-4 border-b-error w-fit text-2xl sm:text-3xl tracking-wider mb-2">
           Share
         </h2>
         <div className="flex mb-8 pb-4">
-          <FaFacebookF className="mr-4 text-3xl cursor-pointer hover:text-error transition-all" />
-          <FaTwitter className="mr-4 text-3xl cursor-pointer hover:text-error transition-all" />
+          <FaFacebookF className="mr-4 text-2xl sm:text-3xl cursor-pointer hover:text-error transition-all" />
+          <FaTwitter className="mr-4 text-2xl sm:text-3xl cursor-pointer hover:text-error transition-all" />
         </div>
       </div>
       <div className="author my-8">
-        <h2 className="font-bangers border-b-4 border-b-error w-fit tracking-wider text-3xl mb-8">
+        <h2 className="font-bangers border-b-4 border-b-error w-fit tracking-wider text-2xl sm:text-3xl mb-8">
           About The Author
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start">
@@ -75,7 +75,7 @@ const BlogBody = ({ clickedBlog }) => {
             <h3 className="font-bangers text-xl tracking-wider text-center md:text-left">
               {clickedBlog.attributes.author.data.attributes.authorName}
             </h3>
-            <p className="font-montserrat">
+            <p className="font-montserrat text-center sm:text-left">
               {clickedBlog.attributes.author.data.attributes.authorDesc}
             </p>
           </div>

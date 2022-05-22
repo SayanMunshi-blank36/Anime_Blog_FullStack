@@ -104,6 +104,19 @@ const Navbar = ({ mode, modeSelected, willSearch, navCategories }) => {
                     </li>
                   </ul>
                 </li>
+                <li>
+                  <div className="sm:hidden flex text-primary">
+                    <div className="transition-all hover:text-error">
+                      <BsTwitter />
+                    </div>
+                    <div className="transition-all hover:text-error">
+                      <BsReddit />
+                    </div>
+                    <div className="transition-all hover:text-error">
+                      <BsInstagram />
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
             <Link href="/">
@@ -210,7 +223,7 @@ const Navbar = ({ mode, modeSelected, willSearch, navCategories }) => {
                 />
               </svg>
             </button>
-            <div className="flex p-2 rounded-md text-gray-900 bg-primary">
+            <div className="sm:flex p-2 rounded-md text-gray-900 bg-primary hidden">
               <BsTwitter className="mx-1 text-xl md:text-3xl hover:text-error cursor-pointer transition-all" />
               <BsReddit className="mx-1 text-xl md:text-3xl hover:text-error cursor-pointer transition-all" />
               <BsInstagram className="mx-1 text-xl md:text-3xl hover:text-error cursor-pointer transition-all" />
