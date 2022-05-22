@@ -34,7 +34,13 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::blog-post.blog-post",
+      "private": true,
       "mappedBy": "author"
+    },
+    "slug": {
+      "type": "uid",
+      "default": "slug",
+      "required": true
     }
   }
 }
