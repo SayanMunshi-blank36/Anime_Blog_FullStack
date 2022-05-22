@@ -15,9 +15,13 @@ const BlogBody = ({ clickedBlog }) => {
       <p className="font-montserrat text-base sm:text-lg mb-4">
         {clickedBlog.attributes.blogDesc}
       </p>
-      <p className="author text-sm sm:text-base font-bold uppercase">
-        {clickedBlog.attributes.author.data.attributes.authorName}
-      </p>
+      <Link
+        href={`/author/${clickedBlog.attributes.author.data.attributes.slug}`}
+      >
+        <p className="author text-sm sm:text-base font-bold uppercase cursor-pointer">
+          By {clickedBlog.attributes.author.data.attributes.authorName}
+        </p>
+      </Link>
       <div className="date text-sm sm:text-base mb-4 uppercase">
         {moment(clickedBlog.attributes.createdAt).format("MMM DD, YYYY")}
       </div>
