@@ -5,7 +5,7 @@ import ComicReviews from "./ComicReviews";
 import MoreBlogs from "./MoreBlogs";
 import Link from "next/link";
 
-const RightSection = ({ blogData }) => {
+const RightSection = ({ moreBlogs, popular1, popular2, mangaFeatured }) => {
   // console.log(blogData);
 
   return (
@@ -15,7 +15,7 @@ const RightSection = ({ blogData }) => {
         <h2 className="text-2xl sm:text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
           Popular
         </h2>
-        {blogData.map(
+        {popular1.map(
           (eachBlog) =>
             eachBlog.attributes.popular1 && (
               <Link
@@ -41,7 +41,7 @@ const RightSection = ({ blogData }) => {
         </Link> */}
         <div className="ad text-center bg-secondary h-72 mb-16">Ad</div>
 
-        {blogData.map(
+        {popular2.map(
           (eachBlog) =>
             eachBlog.attributes.popular2 && (
               <Link
@@ -74,7 +74,7 @@ const RightSection = ({ blogData }) => {
           Featured Manga Posts
         </h2>
         <div className="mx-2 manga_reviews md:justify-center grid grid-cols-2 gap-6">
-          {blogData.map(
+          {mangaFeatured.map(
             (eachBlog) =>
               eachBlog.attributes.mangaFeatured && (
                 <Link
@@ -149,7 +149,7 @@ const RightSection = ({ blogData }) => {
             More
           </h2>
 
-          {blogData.map(
+          {moreBlogs.map(
             (eachBlog) =>
               eachBlog.attributes.moreBlogs && (
                 <Link

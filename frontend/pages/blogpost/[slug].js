@@ -6,7 +6,15 @@ import BlogBody from "../../components/BlogBody";
 import ReadMore from "../../components/ReadMore";
 import styles from "../../styles/Home.module.css";
 
-const Slug = ({ navCategories, blogData, clickedBlog }) => {
+const Slug = ({
+  navCategories,
+  blogData,
+  clickedBlog,
+  moreBlogs,
+  popular1,
+  popular2,
+  mangaFeatured,
+}) => {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -27,7 +35,12 @@ const Slug = ({ navCategories, blogData, clickedBlog }) => {
           className={`${styles.home_grid} border-b-2 border-b-gray-700 mb-8`}
         >
           <BlogBody clickedBlog={clickedBlog} />
-          <RightSection blogData={blogData} />
+          <RightSection
+            moreBlogs={moreBlogs}
+            popular1={popular1}
+            popular2={popular2}
+            mangaFeatured={mangaFeatured}
+          />
         </section>
         <div className="ReadNext w-full mb-8">
           <h2 className="text-2xl sm:text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
@@ -45,17 +58,21 @@ export async function getServerSideProps(context) {
   let navCategories;
   let blogData;
   let clickedBlog;
+  let moreBlogs;
+  let popular1;
+  let popular2;
+  let mangaFeatured;
   let headers = {
     Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
   };
 
   try {
-    const [res1, res2, res3] = await Promise.all([
+    const [res1, res2, res3, res4, res5, res6, res7] = await Promise.all([
       fetch("http://localhost:1337/api/categories", {
         headers: headers,
       }),
       fetch(
-        "http://localhost:1337/api/blog-posts?populate=*&sort=createdAt%3Adesc",
+        "http://localhost:1337/api/blog-posts?populate=*&sort=createdAt%3Adesc&pagination[limit]=10",
         {
           headers: headers,
         }
@@ -66,21 +83,63 @@ export async function getServerSideProps(context) {
           headers: headers,
         }
       ),
+      fetch(
+        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[moreBlogs]=true",
+        {
+          headers: headers,
+        }
+      ),
+      fetch(
+        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular1]=true",
+        {
+          headers: headers,
+        }
+      ),
+      fetch(
+        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular2]=true",
+        {
+          headers: headers,
+        }
+      ),
+      fetch(
+        "http://localhost:1337/api/blog-posts?pagination[limit]=10&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[mangaFeatured]=true",
+        {
+          headers: headers,
+        }
+      ),
     ]);
-    const [json1, json2, json3] = await Promise.all([
-      res1.json(),
-      res2.json(),
-      res3.json(),
-    ]);
+    const [json1, json2, json3, json4, json5, json6, json7] = await Promise.all(
+      [
+        res1.json(),
+        res2.json(),
+        res3.json(),
+        res4.json(),
+        res5.json(),
+        res6.json(),
+        res7.json(),
+      ]
+    );
     navCategories = json1.data;
     blogData = json2.data;
     clickedBlog = json3.data[0];
+    moreBlogs = json4.data;
+    popular1 = json5.data;
+    popular2 = json6.data;
+    mangaFeatured = json7.data;
   } catch (error) {
     throw new Error(error);
   }
 
   return {
-    props: { navCategories, blogData, clickedBlog }, // will be passed to the page component as props
+    props: {
+      navCategories,
+      blogData,
+      clickedBlog,
+      moreBlogs,
+      popular1,
+      popular2,
+      mangaFeatured,
+    }, // will be passed to the page component as props
   };
 }
 
