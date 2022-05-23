@@ -71,9 +71,9 @@ const Navbar = ({ mode, modeSelected, willSearch, navCategories }) => {
                 {navCategories.map((categories) => {
                   return (
                     <li key={categories.id}>
-                      <Link href={`/category/${categories.attributes.type}`}>
+                      <a href={`/category/${categories.attributes.type}`}>
                         <div>{categories.attributes.type}</div>
-                      </Link>
+                      </a>
                     </li>
                   );
                 })}
@@ -93,14 +93,14 @@ const Navbar = ({ mode, modeSelected, willSearch, navCategories }) => {
                   </div>
                   <ul className="p-2 bg-base-300 shadow-lg">
                     <li>
-                      <Link href="/category/submenu1">
+                      <a href="/category/submenu1">
                         <div>Submenu 1</div>
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link href="/category/submenu2">
+                      <a href="/category/submenu2">
                         <div>Submenu 2</div>
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </li>
@@ -158,9 +158,9 @@ const Navbar = ({ mode, modeSelected, willSearch, navCategories }) => {
               {navCategories.map((categories) => {
                 return (
                   <li key={categories.id}>
-                    <Link href={`/category/${categories.attributes.type}`}>
+                    <a href={`/category/${categories.attributes.type}`}>
                       <div>{categories.attributes.type}</div>
-                    </Link>
+                    </a>
                   </li>
                 );
               })}
@@ -179,14 +179,14 @@ const Navbar = ({ mode, modeSelected, willSearch, navCategories }) => {
                 </div>
                 <ul className="p-2 bg-base-300 shadow-lg">
                   <li>
-                    <Link href="/category/submenu1">
+                    <a href="/category/submenu1">
                       <div>Submenu 1</div>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link href="/category/submenu2">
+                    <a href="/category/submenu2">
                       <div>Submenu 2</div>
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </li>

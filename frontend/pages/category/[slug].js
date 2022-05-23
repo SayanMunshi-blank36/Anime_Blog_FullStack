@@ -141,7 +141,7 @@ export async function getServerSideProps(context) {
         headers: headers,
       }),
       fetch(
-        `http://localhost:1337/api/blog-posts?pagination[limit]=5&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[categories][type]=${context.query.slug}`,
+        `http://localhost:1337/api/blog-posts?pagination[limit]=17&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[categories][type]=${context.query.slug}`,
         {
           headers: headers,
         }
