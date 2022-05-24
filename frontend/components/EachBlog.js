@@ -16,7 +16,7 @@ const EachBlog = ({ eachBlog }) => {
       <Image
         className="cursor-pointer hover:opacity-90"
         // src="/393055.png"
-        src={`http://localhost:1337${eachBlog.attributes.blogImg.data.attributes.url}`}
+        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${eachBlog.attributes.blogImg.data.attributes.url}`}
         // src="http://localhost:1337/uploads/YI_Fw2i_9cf3d98744.jpg"
         width={350}
         height={250}

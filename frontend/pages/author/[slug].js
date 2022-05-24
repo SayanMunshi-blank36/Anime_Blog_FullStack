@@ -32,7 +32,7 @@ const Slug = ({
 
   const getMorePosts = async () => {
     const res = await fetch(
-      `http://localhost:1337/api/blog-posts?pagination[start]=${posts.length}&pagination[limit]=5&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[author][slug]=${slug}`,
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?pagination[start]=${posts.length}&pagination[limit]=5&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[author][slug]=${slug}`,
       {
         headers: headers,
       }
@@ -65,7 +65,7 @@ const Slug = ({
             <div className="author my-8">
               <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
                 <Image
-                  src={`http://localhost:1337${authorDetails[0].attributes.authorImg.data.attributes.url}`}
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${authorDetails[0].attributes.authorImg.data.attributes.url}`}
                   // src="/manga.jpg"
                   width={120}
                   height={120}
@@ -151,41 +151,41 @@ export async function getServerSideProps(context) {
 
   try {
     const [res1, res2, res3, res4, res5, res6, res7] = await Promise.all([
-      fetch("http://localhost:1337/api/categories", {
+      fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories`, {
         headers: headers,
       }),
       fetch(
-        `http://localhost:1337/api/blog-posts?pagination[limit]=17&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[author][slug]=${context.query.slug}`,
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?pagination[limit]=17&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[author][slug]=${context.query.slug}`,
         {
           headers: headers,
         }
       ),
       fetch(
-        `http://localhost:1337/api/authors?filters[slug]=${context.query.slug}&populate=*`,
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/authors?filters[slug]=${context.query.slug}&populate=*`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[moreBlogs]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[moreBlogs]=true`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular1]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular1]=true`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular2]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular2]=true`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?pagination[limit]=10&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[mangaFeatured]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?pagination[limit]=10&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[mangaFeatured]=true`,
         {
           headers: headers,
         }

@@ -26,7 +26,7 @@ const BlogBody = ({ clickedBlog }) => {
         {moment(clickedBlog.attributes.createdAt).format("MMM DD, YYYY")}
       </div>
       <Image
-        src={`http://localhost:1337${clickedBlog.attributes.blogImg.data.attributes.url}`}
+        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${clickedBlog.attributes.blogImg.data.attributes.url}`}
         width={800}
         height={600}
       />
@@ -70,7 +70,7 @@ const BlogBody = ({ clickedBlog }) => {
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start">
           <Image
-            src={`http://localhost:1337${clickedBlog.attributes.authorImg.data.attributes.url}`}
+            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${clickedBlog.attributes.authorImg.data.attributes.url}`}
             width={100}
             height={100}
             className="rounded-full"

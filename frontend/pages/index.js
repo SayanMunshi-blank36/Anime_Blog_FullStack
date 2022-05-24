@@ -27,7 +27,7 @@ export default function Home({
 
   const getMorePosts = async () => {
     const res = await fetch(
-      `http://localhost:1337/api/blog-posts?pagination[start]=${posts.length}&pagination[limit]=5&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories`,
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?pagination[start]=${posts.length}&pagination[limit]=5&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories`,
       {
         headers: headers,
       }
@@ -119,41 +119,41 @@ export async function getServerSideProps(context) {
 
   try {
     const [res1, res2, res3, res4, res5, res6, res7] = await Promise.all([
-      fetch("http://localhost:1337/api/categories", {
+      fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories`, {
         headers: headers,
       }),
       fetch(
-        "http://localhost:1337/api/blog-posts?pagination[limit]=17&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?pagination[limit]=17&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[featured]=true&pagination[limit]=5",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[featured]=true&pagination[limit]=5`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[moreBlogs]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[moreBlogs]=true`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular1]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular1]=true`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular2]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular2]=true`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?pagination[limit]=10&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[mangaFeatured]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?pagination[limit]=10&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[mangaFeatured]=true`,
         {
           headers: headers,
         }

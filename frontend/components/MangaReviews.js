@@ -6,7 +6,7 @@ const MangaReviews = ({ eachBlog }) => {
     <div>
       <Image
         className="cursor-pointer hover:opacity-90 shadow-lg rounded-md"
-        src={`http://localhost:1337${eachBlog.attributes.blogImg.data.attributes.url}`}
+        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${eachBlog.attributes.blogImg.data.attributes.url}`}
         width={250}
         height={400}
       />

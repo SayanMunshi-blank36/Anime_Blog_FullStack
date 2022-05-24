@@ -10,7 +10,7 @@ const RightSideBlog = ({ eachBlog }) => {
     <div className="md:px-4 flex flex-col items-center justify-center my-8">
       <Image
         className="cursor-pointer hover:opacity-90"
-        src={`http://localhost:1337${eachBlog.attributes.blogImg.data.attributes.url}`}
+        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${eachBlog.attributes.blogImg.data.attributes.url}`}
         width={300}
         height={200}
       />

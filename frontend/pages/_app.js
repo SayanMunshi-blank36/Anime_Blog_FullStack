@@ -49,9 +49,12 @@ MyApp.getInitialProps = async (ctx) => {
     Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
   };
   try {
-    const res = await fetch("http://localhost:1337/api/categories", {
-      headers: headers,
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories`,
+      {
+        headers: headers,
+      }
+    );
     json = await res.json();
   } catch (error) {
     throw new Error(error);

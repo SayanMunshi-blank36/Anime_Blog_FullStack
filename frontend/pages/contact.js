@@ -91,9 +91,12 @@ export async function getServerSideProps(context) {
   };
 
   try {
-    const res = await fetch("http://localhost:1337/api/categories", {
-      headers: headers,
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories`,
+      {
+        headers: headers,
+      }
+    );
     const json = await res.json();
     navCategories = json.data;
   } catch (error) {

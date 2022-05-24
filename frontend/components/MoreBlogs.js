@@ -6,7 +6,7 @@ const MoreBlogs = ({ eachBlog }) => {
     <div className="flex items-center my-4">
       <Image
         className="cursor-pointer hover:opacity-90 shadow-lg"
-        src={`http://localhost:1337${eachBlog.attributes.blogImg.data.attributes.url}`}
+        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${eachBlog.attributes.blogImg.data.attributes.url}`}
         width={100}
         height={60}
       />

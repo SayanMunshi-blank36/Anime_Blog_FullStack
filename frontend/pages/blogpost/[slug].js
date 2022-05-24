@@ -68,41 +68,41 @@ export async function getServerSideProps(context) {
 
   try {
     const [res1, res2, res3, res4, res5, res6, res7] = await Promise.all([
-      fetch("http://localhost:1337/api/categories", {
+      fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/categories`, {
         headers: headers,
       }),
       fetch(
-        "http://localhost:1337/api/blog-posts?populate=*&sort=createdAt%3Adesc&pagination[limit]=10",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?populate=*&sort=createdAt%3Adesc&pagination[limit]=10`,
         {
           headers: headers,
         }
       ),
       fetch(
-        `http://localhost:1337/api/blog-posts?filters[slug]=${context.query.slug}&populate=*`,
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?filters[slug]=${context.query.slug}&populate=*`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[moreBlogs]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[moreBlogs]=true`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular1]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular1]=true`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular2]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?sort=createdAt%3Adesc&pagination[limit]=3&populate=blogImg&populate=author&populate=categories&filters[popular2]=true`,
         {
           headers: headers,
         }
       ),
       fetch(
-        "http://localhost:1337/api/blog-posts?pagination[limit]=10&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[mangaFeatured]=true",
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blog-posts?pagination[limit]=10&sort=createdAt%3Adesc&populate=blogImg&populate=author&populate=categories&filters[mangaFeatured]=true`,
         {
           headers: headers,
         }
