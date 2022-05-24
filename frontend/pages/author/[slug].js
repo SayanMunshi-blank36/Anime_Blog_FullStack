@@ -99,7 +99,7 @@ const Slug = ({
                   dataLength={posts.length}
                   next={getMorePosts}
                   hasMore={hasMore}
-                  loader={<h4>Loading...</h4>}
+                  loader={<img src="/loader.gif" />}
                   endMessage={
                     <p className="text-center">
                       <b>Yay! You have seen it all</b>
