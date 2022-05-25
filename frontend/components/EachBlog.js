@@ -20,6 +20,7 @@ const EachBlog = ({ eachBlog }) => {
         // src="http://localhost:1337/uploads/YI_Fw2i_9cf3d98744.jpg"
         width={350}
         height={250}
+        priority
       />
       <div className="right_latest-blog flex flex-col">
         <div className="right_latest_internal mb-8">

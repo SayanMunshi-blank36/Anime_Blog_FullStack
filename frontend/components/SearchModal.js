@@ -12,6 +12,7 @@ const SearchModal = ({ willSearch, search }) => {
     e.preventDefault();
     router.push(`/search/${searchQuery.toLowerCase()}`);
     willSearch(false);
+    setSearchQuery("");
   };
 
   return (
