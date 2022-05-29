@@ -76,41 +76,48 @@ const Slug = ({
       <main className="container mx-auto px-8 sm:p-8">
         <section className={styles.home_grid}>
           {/* <CategoryLatestBlogs blogData={blogData} checkSlug={slug} /> */}
-          <section className="my-8">
-            <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
-              Latest
-            </h2>
-            <InfiniteScroll
-              dataLength={posts.length}
-              next={getMorePosts}
-              hasMore={hasMore}
-              loader={<img src="/loader.gif" />}
-              endMessage={
-                <p className="text-center">
-                  <b>Yay! You have seen it all</b>
-                </p>
-              }
-            >
-              {posts.map(
-                (eachBlog) =>
-                  (slug ===
-                    eachBlog.attributes.categories.data[0].attributes.type ||
-                    (eachBlog.attributes.categories.data[1] &&
-                      slug ===
-                        eachBlog.attributes.categories.data[1].attributes
-                          .type)) && (
-                    <Link
-                      href={`/blogpost/${eachBlog.attributes.slug}`}
-                      key={eachBlog.id}
-                    >
-                      <div className="w-5/6 mx-auto lg:w-full">
-                        <EachBlog key={eachBlog.id} eachBlog={eachBlog} />
-                      </div>
-                    </Link>
-                  )
-              )}
-            </InfiniteScroll>
-          </section>
+          {posts.length === 0 ? (
+            <p className="text-center font-bangers text-xl text-error-content">
+              No Blogs yet in this Category
+            </p>
+          ) : (
+            <section className="my-8">
+              <h2 className="text-3xl font-bangers text-neutral-content border-b-4 border-error w-fit tracking-wider mb-4">
+                Latest
+              </h2>
+              <InfiniteScroll
+                dataLength={posts.length}
+                next={getMorePosts}
+                hasMore={hasMore}
+                loader={<img src="/loader.gif" />}
+                endMessage={
+                  <p className="text-center">
+                    <b>Yay! You have seen it all</b>
+                  </p>
+                }
+              >
+                {posts.map(
+                  (eachBlog) =>
+                    (slug ===
+                      eachBlog.attributes.categories.data[0].attributes.type ||
+                      (eachBlog.attributes.categories.data[1] &&
+                        slug ===
+                          eachBlog.attributes.categories.data[1].attributes
+                            .type)) && (
+                      <Link
+                        href={`/blogpost/${eachBlog.attributes.slug}`}
+                        key={eachBlog.id}
+                      >
+                        <div className="w-5/6 mx-auto lg:w-full">
+                          <EachBlog key={eachBlog.id} eachBlog={eachBlog} />
+                        </div>
+                      </Link>
+                    )
+                )}
+              </InfiniteScroll>
+            </section>
+          )}
+
           <RightSection
             moreBlogs={moreBlogs}
             popular1={popular1}
